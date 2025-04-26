@@ -1,42 +1,109 @@
 # ───────────────────────────────────────────────────────────────
-# Ficheros del sistema
+# Sistema operativo
+##################
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Logs y reports
+# ───────────────────────────────────────────────────────────────
+# Logs y temporales
+#####################
 *.log
-reports/
+*.tmp
+*.bak
+*.swp
+*.swpx
+*.swo
 
 # ───────────────────────────────────────────────────────────────
 # IDEs y editores
+####################
+# NetBeans
+nbproject/private/
+build/
+dist/
+nbbuild/
+.nb-gradle/
+
+# IntelliJ IDEA
 .idea/
 *.iml
-*.ipr
 *.iws
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+tmp/
+
+# Visual Studio Code
 .vscode/
 
 # ───────────────────────────────────────────────────────────────
-# Java / Maven / Gradle
+# Java: artefactos compilados
+################################
 *.class
 *.jar
 *.war
 *.ear
 *.nar
 hs_err_pid*
-dependency-reduced-pom.xml
-build/
+
+# Carpetas de salida (Maven / Gradle / Ant)
 target/
+build/
 out/
 
 # ───────────────────────────────────────────────────────────────
-# Variables de entorno
-.env
-.env.local
-.env.*.local
+# Maven
+#################
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
 
 # ───────────────────────────────────────────────────────────────
-# Ficheros de empaquetado / portable
+# Gradle
+#################
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
+**/build/
+
+# ───────────────────────────────────────────────────────────────
+# Spring Boot
+####################
+spring.log
+
+# ───────────────────────────────────────────────────────────────
+# Entornos virtuales (p. ej. si hay subcarpetas Python)
+env/
+venv/
+.venv/
+
+# ───────────────────────────────────────────────────────────────
+# Variables de entorno y configuración sensible
+###############################################
+*.env
+*.env.*.local
+*.properties.local
+*.credentials
+
+# ───────────────────────────────────────────────────────────────
+# Ficheros de empaquetado
+################################
 *.zip
 *.tar.gz
 *.rar
 *.7z
+*.gz
+
+# ───────────────────────────────────────────────────────────────
+# Otros
+#########
+*.class
