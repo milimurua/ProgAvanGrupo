@@ -1,0 +1,60 @@
+# ───────────────────────────────────────────────────────────────
+# Ficheros del sistema
+.DS_Store
+Thumbs.db
+
+# Logs y reports
+*.log
+reports/
+
+# ───────────────────────────────────────────────────────────────
+# IDEs y editores
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# ───────────────────────────────────────────────────────────────
+# Java / Maven / Gradle
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+dependency-reduced-pom.xml
+build/
+target/
+out/
+
+# ───────────────────────────────────────────────────────────────
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+
+# ───────────────────────────────────────────────────────────────
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+
+# ───────────────────────────────────────────────────────────────
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# ───────────────────────────────────────────────────────────────
+# Ficheros de empaquetado / portable
+*.zip
+*.tar.gz
+*.rar
+*.7z
