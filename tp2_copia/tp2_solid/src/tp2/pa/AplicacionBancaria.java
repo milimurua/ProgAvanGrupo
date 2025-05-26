@@ -1,17 +1,9 @@
 package tp2.pa;
 
-import java.sql.Connection;
 import java.util.Scanner;
 
 public class AplicacionBancaria {
     public static void main(String[] args) {
-        try (Connection conn = DBConnexion.getConnection()) {
-            System.out.println("¡Conexión exitosa a " + conn.getMetaData().getURL());
-        } catch (Exception e) {
-            System.out.println("no se pudo conectar");
-            e.printStackTrace();
-        }
-
         try (Scanner scanner = new Scanner(System.in)) {
             int opc=0;
             do{
@@ -19,7 +11,7 @@ public class AplicacionBancaria {
                 System.out.println("2. Desea crear cuenta ");
                 opc=scanner.nextInt();
             }while(opc!=1 || opc!=2);
-
+            
             String pin ="", idCuenta= "", nombre ="";
             double saldoInicial = 0;
             switch(opc){
@@ -27,13 +19,13 @@ public class AplicacionBancaria {
                     // Registro inicial del usuario
                     System.out.print("Introduce tu nombre: ");
                     nombre = scanner.nextLine();
-
+                    
                     System.out.print("Introduce el ID de la cuenta: ");
                     idCuenta = scanner.nextLine();
-
+                    
                     System.out.print("Introduce tu PIN (contraseña): ");
                     pin = scanner.nextLine();
-
+                    
                 case 2:
                     System.out.print("Introduce tu nombre: ");
                     nombre = scanner.nextLine();

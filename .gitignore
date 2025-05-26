@@ -1,109 +1,38 @@
-# ───────────────────────────────────────────────────────────────
-# Sistema operativo
-##################
-.DS_Store
+# Gradle build files and directories
+
+.gradle/
+build/
+
+# Gradle Wrapper files (versioned)
+
+gradlew
+gradlew\.bat
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ IDEA
+
+.idea
+*.iml
+
+# OS-specific files
+
+.DS\_Store
 Thumbs.db
 desktop.ini
 
-# ───────────────────────────────────────────────────────────────
-# Logs y temporales
-#####################
+# Logs and temporary files
+
 *.log
 *.tmp
-*.bak
-*.swp
-*.swpx
-*.swo
+*\~
 
-# ───────────────────────────────────────────────────────────────
-# IDEs y editores
-####################
-# NetBeans
-nbproject/private/
-build/
-dist/
-nbbuild/
-.nb-gradle/
+# Sensitive configuration files
 
-# IntelliJ IDEA
-.idea/
-*.iml
-*.iws
-out/
+# Ignore property files containing credentials or environment settings
 
-# Eclipse
-.project
-.classpath
-.settings/
-bin/
-tmp/
+*.properties
 
-# Visual Studio Code
-.vscode/
+# Ignore packaged JARs in /libs or external directories if any
 
-# ───────────────────────────────────────────────────────────────
-# Java: artefactos compilados
-################################
-*.class
-*.jar
-*.war
-*.ear
-*.nar
-hs_err_pid*
-
-# Carpetas de salida (Maven / Gradle / Ant)
-target/
-build/
-out/
-
-# ───────────────────────────────────────────────────────────────
-# Maven
-#################
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-
-# ───────────────────────────────────────────────────────────────
-# Gradle
-#################
-.gradle/
-!gradle/wrapper/gradle-wrapper.jar
-gradle-app.setting
-**/build/
-
-# ───────────────────────────────────────────────────────────────
-# Spring Boot
-####################
-spring.log
-
-# ───────────────────────────────────────────────────────────────
-# Entornos virtuales (p. ej. si hay subcarpetas Python)
-env/
-venv/
-.venv/
-
-# ───────────────────────────────────────────────────────────────
-# Variables de entorno y configuración sensible
-###############################################
-*.env
-*.env.*.local
-*.properties.local
-*.credentials
-
-# ───────────────────────────────────────────────────────────────
-# Ficheros de empaquetado
-################################
-*.zip
-*.tar.gz
-*.rar
-*.7z
-*.gz
-
-# ───────────────────────────────────────────────────────────────
-# Otros
-#########
-*.class
+libs/\*.jar

@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'tp2.pa'       // cámbialo por tu paquete base
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '11'     // o la versión Java que uses
+targetCompatibility = '11'
+
+application {
+    mainClass = 'tp2.pa.AplicacionBancaria'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation "mysql:mysql-connector-java:8.0.33"
+    // tus dependencias, por ejemplo JUnit para tests:
+    testImplementation 'junit:junit:4.13.2'
+}
+
+// Indica que tu código fuente está bajo src/tp2/pa
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['src/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']  // crea esta carpeta si tienes tests
+        }
+    }
+}
+
+// Para empaquetar usando tu manifest.mf existente:
+jar {
+    manifest {
+        from('manifest.mf')
+    }
+    // incluyes todas las clases compiladas:
+    from sourceSets.main.output
+}
