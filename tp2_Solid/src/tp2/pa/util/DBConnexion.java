@@ -1,4 +1,4 @@
-package tp2.pa;
+package tp2.pa.util;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -25,17 +25,12 @@ public class DBConnexion{
             url = props.getProperty("db.url");
             user = props.getProperty("db.user");
             password = props.getProperty("db.password");
-            System.out.println(url + user + password);
         } catch (Exception e) {
             throw new ExceptionInInitializerError("Error cargando configuración de BD: " + e);
         }
     }
 
     public static Connection getConnection() throws SQLException{
-        System.out.println(url+"?user="+user+"&password="+password);
         return DriverManager.getConnection(url, user, password);
     }
-
-
-
 }

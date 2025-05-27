@@ -1,4 +1,3 @@
-Copiar este script en la base de datos que utilice.
 -- 1.Crear la base de datos --
 CREATE DATABASE IF NOT EXISTS bd_aplicacion_bancaria;
 
@@ -9,8 +8,7 @@ USE bd_aplicacion_bancaria;
 CREATE TABLE IF NOT EXISTS usuario(
 	id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
-    contraseña VARCHAR(50) NOT NULL,
-    bloqueado BOOLEAN NOT NULL DEFAULT FALSE
+    contraseña VARCHAR(50) NOT NULL
 );
 
 -- 4.Crear la tabla cuenta --
@@ -31,15 +29,4 @@ CREATE TABLE IF NOT EXISTS transaccion(
     cuenta_destino INT(50),
     FOREIGN KEY(cuenta_id) REFERENCES cuenta(id_cuenta),
     FOREIGN KEY(cuenta_destino) REFERENCES cuenta(id_cuenta)
-);
-
--- 6.Crear tabla notificiacion --
-CREATE TABLE IF NOT EXISTS notificacion (
-  id_notificacion BIGINT AUTO_INCREMENT PRIMARY KEY,
-  cuenta_id       INT(50) NOT NULL,
-  medio           ENUM('EMAIL','SMS') NOT NULL,
-  mensaje         TEXT        NOT NULL,
-  fecha_envio     TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  estado          ENUM('ENVIADO','FALLIDO') NOT NULL DEFAULT 'ENVIADO',
-  FOREIGN KEY (cuenta_id) REFERENCES cuenta(id_cuenta)
 );

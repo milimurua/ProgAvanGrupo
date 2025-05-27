@@ -10,7 +10,7 @@ sourceCompatibility = '11'     // o la versión Java que uses
 targetCompatibility = '11'
 
 application {
-    mainClass = 'tp2.pa.AplicacionBancaria'
+    mainClass = 'tp2.pa.BankApplication'
 }
 
 repositories {
