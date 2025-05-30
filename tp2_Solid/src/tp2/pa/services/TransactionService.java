@@ -8,6 +8,11 @@ import tp2.pa.util.DBConnexion;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import tp2.pa.model.NotificationEmail;
+import tp2.pa.model.NotificationSMS;
+import tp2.pa.model.INotification;
+import tp2.pa.model.*;
+
 
 //deposito, retiro, transferencia, solicitar préstamo
 public class TransactionService {
@@ -80,6 +85,18 @@ public class TransactionService {
             System.out.println("  ID salida:  " + txOut + " | Saldo origen:  $" + newSrc);
             System.out.println("  ID entrada: " + txIn  + " | Saldo destino: $" + newDst);
         }
+
+        //  CREAR INSTANCIAS de notificación
+        INotification emailNotifier = new NotificationEmail(user);
+        INotification smsNotifier = new NotificationSMS(user);
+
+        //  MENSAJE personalizado
+        String mensaje = "Se realizó una transferencia de $" + amount + " a la cuenta ID " + destAccountId;
+
+        // ENVIAR notificaciones
+        emailNotifier.notify(mensaje);
+        smsNotifier.notify(mensaje);
+
     }
 
     /**

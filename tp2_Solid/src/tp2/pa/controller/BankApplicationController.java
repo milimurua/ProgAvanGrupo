@@ -173,13 +173,22 @@ public class BankApplicationController {
                     }
                     break;
                 case 7:
-                    System.out.print("Nueva Contraseña: ");
-                    String newPassword = scanner.nextLine();
-                    try {
-                        authService.changePassword(currentUser, newPassword);
-                        System.out.println("Contraseña actualizada correctamente.");
-                    } catch (Exception e) {
-                        System.err.println("Error al cambiar la contraseña: " + e.getMessage());
+                    System.out.println("Ingrese su contraseña actual: ");
+                    String currentPassword = scanner.nextLine();
+
+                    if (authService.verifyPassword(currentUser.getName(), currentPassword)) {
+                        System.out.println("Contraseña correcta. " );
+                        System.out.print("Nueva Contraseña: ");
+                        String newPassword = scanner.nextLine();
+
+                        try {
+                            authService.changePassword(currentUser, newPassword);
+                            System.out.println("Contraseña actualizada correctamente.");
+                        } catch (Exception e) {
+                            System.err.println("Error al cambiar la contraseña: " + e.getMessage());
+                        }
+                    } else {
+                        System.out.println("Contraseña actual incorrecta. No se realizó el cambio.");
                     }
                     break;
                 case 8:

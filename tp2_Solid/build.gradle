@@ -3,10 +3,10 @@ plugins {
     id 'application'
 }
 
-group = 'tp2.pa'       // cámbialo por tu paquete base
+group = 'tp2.pa'
 version = '1.0-SNAPSHOT'
 
-sourceCompatibility = '11'     // o la versión Java que uses
+sourceCompatibility = '11'// o la versión Java que uses
 targetCompatibility = '11'
 
 application {
