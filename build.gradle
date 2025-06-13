@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'tp2.pa'
+version = '1.0'
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+
+/*java {
+
+    sourceCompatibility = JavaVersion.VERSION_24 // Cambia a Java 24
+    targetCompatibility = JavaVersion.VERSION_24 // Cambia a Java 24
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24) // Fuerza el uso de Java 24
+    }
+}*/
+
+
+application {
+    mainClass = 'tp2.pa.BankApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
+}
+
+run {
+    standardInput = System.in // Habilita entrada interactiva
+}
+
+jar {
+    manifest {
+        if (file('manifest.mf').exists()) {
+            from('manifest.mf')
+        } else {
+            attributes(
+                    'Main-Class': application.mainClass
+            )
+        }
+    }
+    from sourceSets.main.output
+}
