@@ -55,6 +55,15 @@ public class BankApplication {
         // operaciones con map
         operations.put(1, new CheckBalanceOperation());
         operations.put(2, new DepositOperation());
+        operations.put(3, new WithdrawOperation());
+        operations.put(4, new TransferOperation());
+        operations.put(5, new ChangeHolderOperation());
+        operations.put(6, new DeleteAccountOperation());
+        operations.put(7, new ChangePasswordOperation());
+        operations.put(8, new LoanRequestOperation());
+        operations.put(9, new AccountDetailsOperation());
+        operations.put(10, new CreateNewAccountOperation());
+
 
     }
 
