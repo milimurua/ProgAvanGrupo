@@ -36,3 +36,5 @@ desktop.ini
 # Ignore packaged JARs in /libs or external directories if any
 
 libs/\*.jar
+
+src/main/resources/db.properties

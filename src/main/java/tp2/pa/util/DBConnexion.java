@@ -33,4 +33,7 @@ public class DBConnexion {
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
+
+
+
 }
