@@ -5,7 +5,6 @@ import tp2.pa.model.User;
 import tp2.pa.controller.AuthController;
 import tp2.pa.controller.TransactionController;
 
-
 import java.util.Scanner;
 
 public class DepositOperation implements BankOperation {

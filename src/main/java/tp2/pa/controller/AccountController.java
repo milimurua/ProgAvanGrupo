@@ -11,29 +11,26 @@ import java.sql.SQLException;
 //crear cuenta, consultar saldo
 public class AccountController {
     /**
-     * Método donde se crea un nuevo usuario
+     * Metodo donde se crea un nuevo usuario
      */
     private final UserService userService = new UserService();
     private final AccountService accountService = new AccountService();
 
     /**
-     * Método para crear una cuenta que llama a la clase AccountRepository que se encarga de los CRUD de las cuentas y Usuarios
+     * Metodo para crear una cuenta que llama a la clase AccountRepository que se encarga de los CRUD de las cuentas y Usuarios
      */
     public int[] createUserWithAccount(String name, String password, double initialBalance) throws SQLException {
         //Verifica que este conectada la bd
         try (Connection conn = DBConnexion.getConnection()) {
-            //
             conn.setAutoCommit(false);
             try {
                 //llama a userRepo y accountRepo que
                 int userId = userService.createUser(conn, name, password);
                 int accountId = accountService.createAccount(conn, userId, initialBalance);
-                //
                 conn.commit();
                 //devuelve el id_usuario y el id_cuenta
                 return new int[]{userId, accountId};
             } catch (SQLException ex) {
-                //
                 conn.rollback();
                 throw ex;
             }
@@ -55,14 +52,6 @@ public class AccountController {
                 conn.rollback();
                 throw ex;
             }
-        }
-    }
-
-    //devuelve el saldo actual de la cuenta.
-
-    public double getBalance(int accountId) throws SQLException {
-        try (Connection conn = DBConnexion.getConnection()) {
-            return accountService.findBalanceById(conn, accountId);
         }
     }
 

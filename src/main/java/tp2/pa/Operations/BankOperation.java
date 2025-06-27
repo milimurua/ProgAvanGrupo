@@ -10,6 +10,8 @@ import tp2.pa.services.TransactionService;
 import java.util.Scanner;
 
 public interface BankOperation {
-    String getName(); // Nombre de la operación para mostrar en el menú
+    // Nombre de la operación para mostrar en el menú
+    String getName();
+    // Metodo que define la accion que realiza la operacion
     void execute(Scanner scanner, User currentUser, AccountController account, AuthController auth, TransactionController transaction) throws Exception;
 }

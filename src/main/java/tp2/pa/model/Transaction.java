@@ -14,7 +14,6 @@ public class Transaction {
 
     /**
      * Constructor completo.
-     *
      * @param id        Identificador de la transacción
      * @param accountId Identificador de la cuenta asociada
      * @param amount    Monto de la transacción
@@ -43,38 +42,6 @@ public class Transaction {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
     }
 
     @Override

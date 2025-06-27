@@ -1,4 +1,3 @@
-// tp2.pa.operations/TransferOperation.java
 package tp2.pa.Operations;
 
 import tp2.pa.controller.AccountController;

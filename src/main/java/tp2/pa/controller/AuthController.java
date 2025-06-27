@@ -48,7 +48,7 @@ public class AuthController {
     }
 
     /**
-     * Método privado centralizado para autenticación.
+     * Metodo privado centralizado para autenticación.
      * Si el usuario no existe o la contraseña es incorrecta, lanza AuthenticationException.
      */
     private User authenticate(String username, String password) throws SQLException, AuthenticationException {

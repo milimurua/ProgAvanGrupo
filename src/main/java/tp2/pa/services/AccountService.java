@@ -8,7 +8,9 @@ public class AccountService {
      * Inserta una cuenta para el usuario dado y devuelve el id de cuenta.
      */
     public int createAccount(Connection conn, int userId, double balance) throws SQLException {
+        // Query que vamos a realizar a la base de datos
         String sql = "INSERT INTO cuenta(usuario_id, saldo) VALUES (?, ?)";
+        // conectamos a la base datos, hacemos la query y devuelve la key que genera la base de datos
         try (PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, userId);
             ps.setDouble(2, balance);

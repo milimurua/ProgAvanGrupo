@@ -1,6 +1,5 @@
 package tp2.pa;
 
-
 import tp2.pa.Operations.BankOperation;
 import tp2.pa.controller.AccountController;
 import tp2.pa.controller.AuthController;
@@ -32,10 +31,11 @@ public class BankAppManager {
         initializeOperations();
     }
 
-
-
+    /**
+     *inicializa las operaciones bancarias, y las introduce en un map
+     * Map: clave, valor -> opción del menu, operación del menu (objeto implementa intefaz bankoperation)
+     */
     private void initializeOperations() {
-
         operations.put(1, new CheckBalanceOperation());
         operations.put(2, new DepositOperation());
         operations.put(3, new WithdrawOperation());
@@ -48,7 +48,9 @@ public class BankAppManager {
         operations.put(10, new CreateNewAccountOperation());
     }
 
-
+    /**
+     * Menu inicial: permite registrarse o crear una cuenta
+     */
     public void start() {
         int opc;
         do {
@@ -64,9 +66,9 @@ public class BankAppManager {
                     case 1: loginFlow(); break;
                     case 2: registerFlow(); break;
                     case 0: System.out.println("¡Hasta pronto!"); break;
-                    default: System.out.println("Opción no válida. Por favor, intenta de nuevo.");
+                    default: System.out.println("Opción no válida. Por favor, intenta de nuevo."); //si es un entero no válido
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) { // si ingesa cualquier simbolo o caracter
                 System.err.println("Entrada inválida. Por favor, ingresa un número.");
                 opc = -1; // Para asegurar que el bucle continúe
             }
@@ -107,7 +109,7 @@ public class BankAppManager {
         double balance = Double.parseDouble(scanner.nextLine());
 
         try {
-            int[] ids = accountController.createUserWithAccount(name, password, balance);
+            int[] ids = accountController.createUserWithAccount(name, password, balance); // Devuelve ids para cuenta y usuario
             System.out.printf("Usuario (id=%d) y cuenta (id=%d) creados correctamente.%n", ids[0], ids[1]);
 
             // Se asume que el usuario recién creado es el current user para la sesión
@@ -128,7 +130,6 @@ public class BankAppManager {
             System.out.println("\n=== Menú de Operaciones ===");
             // Imprime las opciones dinámicamente usando el mapa de operaciones
             for (Map.Entry<Integer, BankOperation> entry : operations.entrySet()) {
-
                 System.out.println(entry.getKey() + ". " + entry.getValue().getName());
             }
             System.out.println("0. Cerrar Sesión");
@@ -164,6 +165,5 @@ public class BankAppManager {
             }
         } while (option != 0);
     }
-
 
 }

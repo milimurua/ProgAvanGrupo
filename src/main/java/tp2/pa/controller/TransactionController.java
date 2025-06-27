@@ -80,8 +80,8 @@ public class TransactionController {
             user.getAccount().setBalance(newSrc);
 
             System.out.println("Transferencia exitosa.");
-            System.out.println("  ID salida:  " + txOut + " | Saldo origen:  $" + newSrc);
-            System.out.println("  ID entrada: " + txIn + " | Saldo destino: $" + newDst);
+            System.out.println("ID salida: " + txOut + " | Saldo origen:  $" + newSrc);
+            System.out.println("ID entrada: " + txIn + " | Saldo destino: $" + newDst);
         }
 
         //  CREAR INSTANCIAS de notificación
@@ -101,34 +101,33 @@ public class TransactionController {
      * Solicita un préstamo: guarda la solicitud, actualiza saldo y registra la transacción.
      */
     public void askForALoan(User user, double amount) throws SQLException {
-        int acctId = user.getAccount().getIdAccount();  // antes usabas getIdAccount()
+        int acctId = user.getAccount().getIdAccount();
 
         Connection conn = null;
         try {
             conn = DBConnexion.getConnection();
             conn.setAutoCommit(false);
 
-            // 1) Obtener saldo actual y validar
+            // Obtener saldo actual y validar
             double oldBal = accountService.findBalanceById(conn, acctId);
             if (oldBal < 0) {
                 throw new SQLException("Saldo negativo: no se puede solicitar un préstamo");
             }
 
-            // 2) Calcular y actualizar nuevo saldo
+            // Calcular y actualizar nuevo saldo
             double newBal = oldBal + amount;
             accountService.updateBalance(conn, acctId, newBal);
 
-            // 3) Registrar transacción de tipo “Prestamo”
-            // Ajusta el método según tu firma actual de saveTransaction
+            // Registrar transacción de tipo “Prestamo”
             int transactionId = transactionService.saveTransaction(conn, acctId, amount, "Prestamo", acctId);
 
-            // 4) Confirmar transacción
+            // Confirmar transacción
             conn.commit();
 
-            // 5) Reflejar el cambio en el objeto en memoria
+            // Reflejar el cambio en el objeto en memoria
             user.getAccount().setBalance(newBal);
 
-            // 6) Feedback al usuario
+            // Feedback al usuario
             System.out.println("Préstamo registrado. ID transacción = " + transactionId);
 
         } catch (SQLException ex) {
@@ -148,6 +147,4 @@ public class TransactionController {
             }
         }
     }
-
-
 }

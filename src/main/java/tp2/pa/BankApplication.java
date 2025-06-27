@@ -1,19 +1,11 @@
 package tp2.pa;
 
-import tp2.pa.model.Account;
-import tp2.pa.model.User;
 import tp2.pa.util.DBConnexion;
 import tp2.pa.controller.AuthController;
-import tp2.pa.Operations.*;
 import tp2.pa.controller.AccountController;
 import tp2.pa.controller.TransactionController;
-import javax.naming.AuthenticationException;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Scanner;
-import tp2.pa.BankAppManager;
 
 
 public class BankApplication {
@@ -31,7 +23,6 @@ public class BankApplication {
             return;
         }
 
-
         //instancias que inician controlador
         AccountController accountController = new AccountController();
         AuthController authController = new AuthController();
@@ -43,9 +34,6 @@ public class BankApplication {
         bankAppManager.start(); //funcion que inicia la aplicacion bancaria
         scanner.close();
         System.out.println("App terminada");
-
-
-
     }
 
 }
